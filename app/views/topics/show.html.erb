@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First post:</b>
+  <%= @topic.first_post %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <b>Count post:</b>
+  <%= @topic.count_post %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @topic.category_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

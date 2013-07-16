@@ -1,0 +1,39 @@
+<%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+      <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    <%= hidden_field(:topic , :category_id) %>
+  </div>
+  <%= f.fields_for :posts do |p|  %>
+    <div class="field">
+      <%= p.label :password %><br />
+      <%= p.text_field :password %>
+    </div>
+    <div class="field">
+      <%= p.label :content %><br />
+      <%= p.text_area :content %>
+    </div>
+    <div class="field">
+      <%= p.label :img %><br />
+      <%= p.file_field :img %>
+    </div>
+
+  <% end %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
