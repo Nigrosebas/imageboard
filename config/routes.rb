@@ -1,10 +1,8 @@
 Imageboard::Application.routes.draw do
-
-
   get "home/index"
-  devise_for :mods, :controllers => { :sessions => "mods/sessions" }
-  devise_for :mods, :path => "mods", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
 
+devise_for :mods, :controllers => { :sessions => "mods/sessions" }
+  devise_for :mods, :path => "mods", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
 
   resources :posts
 
@@ -67,8 +65,7 @@ Imageboard::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-  root :to => 'home#index'
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

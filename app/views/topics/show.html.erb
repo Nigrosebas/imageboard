@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="response span9 offset1">
+Titulo:  <%=  @topic.title %>  <%= link_to  'responder'  , new_post_path(:topic => @topic.id)%>
+    		<% @fpost = Post.where(:id => @topic.posts.first.id) %>
+<div class="content row"  style="border:1px black solid !important; border-radius:4px; box-shadow:4px 4px 4px 4px;">
+	<ul class="thumbnails">
+		<li class="span4"> <img src="/assets/imagen2.png"> </li>
+    	<li class="hero-unit"> <%= @fpost.first.content %> </li>
+	</ul>
+</div>
 
-<p>
-  <b>First post:</b>
-  <%= @topic.first_post %>
-</p>
+</div>
+	<% @posts = Post.where(:topic_id =>@topic.id) %>
+	<% @posts.each do |post| %>
+	<div class="response span9 offset2">
+		<div class="content row"  style="border:1px black solid !important; border-radius:4px; box-shadow:4px 4px 4px 4px;">
+			<ul class="thumbnails">
+				<li class="span4"> <%= image_tag post.photo_path %> </li>
+		    	<li class="hero-unit"> <%= post.content %> </li>	
+			</ul>
+		</div>
+	</div>
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <b>Count post:</b>
-  <%= @topic.count_post %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @topic.category_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+	<% end %>

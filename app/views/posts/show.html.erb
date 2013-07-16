@@ -19,6 +19,7 @@
   <b>Topic:</b>
   <%= @post.topic_id %>
 </p>
+<%= image_tag @post.photo_path %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

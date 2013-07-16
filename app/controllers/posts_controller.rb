@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @topic = Topic.find(params[:topic])
+    @post.topic_id = @topic.id
 
     respond_to do |format|
       format.html # new.html.erb
