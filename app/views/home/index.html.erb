@@ -1,2 +1,25 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+
+<div class="hero-unit" >
+            <h2>Bienvenido a ImageBoard</h2>
+            <p>Imageboard es un sitio chileno en donde todos pueden discutir, publicar y adjuntar imágenes a sus publicaciones junto a otras personas con gustos similares, usualmente de forma “anónima”. La idea es poder dar opiniones donde la identidad no es importante, siendo más fácil decir lo que realmente piensas.</p>
+</div>
+
+<div class="container-fluid" >
+    <div class="row-fluid">
+        <div class="span3">
+          	<div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Ultimos Topic con actividad</li>
+              <li><% @topics = Topic.all %>
+              <% @topics.each do |topic| %>
+		          <li><%= link_to topic.title, topic %></li>
+				      <% end %></li>
+            </ul>
+          </div>
+       </div>
+	</div>
+</div>
+
+
+

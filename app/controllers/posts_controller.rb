@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  before_filter :authenticate_mod!, :except => [:show, :new ,:create,:index]
   def index
     @posts = Post.all
 

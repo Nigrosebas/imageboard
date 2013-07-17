@@ -14,7 +14,7 @@
 <body>
 <header>
 	<ul class="breadcrumb">
-		<li><a href="#">Home </a> <span class="divider">/</span></li>
+		<li><%= link_to "Home", "/" %> <span class="divider">/</span></li>
 		<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="divider">/</span></li>
 		<% @categories = Category.all %>
 		<% @categories.each do |category| %>
@@ -36,13 +36,13 @@
             <img src="http://lorempixel.com/1170/300/abstract"  height="4000" width="500" ></img>
           <br>
             <%=h yield(:description) %> 
-      </header></div>
+      </header>
+      </div>
 
-    </div>
 
 
       <div id="push"></div>
-    </div>
+      </div>
 <div class="container">
 <%= yield %>
 </div>
@@ -69,10 +69,9 @@
  </style>
 
        <div id="push"></div>
-    </div>
     <div id="footer">
       <div class="container">
-        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+        <p class="muted credit" align = "center" >Imageboard © 2013<br><a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
       </div>
     </div>
 </body>

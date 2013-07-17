@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
+  before_filter :authenticate_mod!, :except => [:show,:index ,:new ,:create ,:destroy]
   def index
     @topics = Topic.all
 

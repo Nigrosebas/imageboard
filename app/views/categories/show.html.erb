@@ -20,7 +20,7 @@
 
 <div class="content row"  style="border:1px black solid !important; border-radius:4px; box-shadow:4px 4px 4px 4px;">
 	<ul class="thumbnails">
-		<li class="span4"> <img src="/assets/imagen2.png"> </li>
+		<li class="span4"><a href=<%= @fpost.first.photo_path%>> <%= image_tag( @fpost.first.photo_path,size: "200x160") %></a> </li>
 
     	<li class="hero-unit"> <%= @fpost.first.content %> </li>
     		

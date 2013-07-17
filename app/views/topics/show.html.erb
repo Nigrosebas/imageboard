@@ -3,7 +3,7 @@ Titulo:  <%=  @topic.title %>  <%= link_to  'responder'  , new_post_path(:topic 
     		<% @fpost = Post.where(:id => @topic.posts.first.id) %>
 <div class="content row"  style="border:1px black solid !important; border-radius:4px; box-shadow:4px 4px 4px 4px;">
 	<ul class="thumbnails">
-		<li class="span4"> <img src="/assets/imagen2.png"> </li>
+		<li class="span4"><a href=<%= @fpost.first.photo_path%>> <%= image_tag( @fpost.first.photo_path,size: "200x160") %></a> </li>
     	<li class="hero-unit"> <%= @fpost.first.content %> </li>
 	</ul>
 </div>
@@ -11,13 +11,14 @@ Titulo:  <%=  @topic.title %>  <%= link_to  'responder'  , new_post_path(:topic 
 </div>
 	<% @posts = Post.where(:topic_id =>@topic.id) %>
 	<% @posts.each do |post| %>
+	<% if post.id != @topic.posts.first.id %>
 	<div class="response span9 offset2">
 		<div class="content row"  style="border:1px black solid !important; border-radius:4px; box-shadow:4px 4px 4px 4px;">
 			<ul class="thumbnails">
-				<li class="span4"> <%= image_tag post.photo_path %> </li>
+				<li class="span4"><a href=<%= post.photo_path%>> <%= image_tag( post.photo_path,size: "200x160") %></a> </li>
 		    	<li class="hero-unit"> <%= post.content %> </li>	
 			</ul>
 		</div>
 	</div>
-
+	<% end %>
 	<% end %>
